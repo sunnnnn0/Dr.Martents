@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Material Icons -->
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+        <!-- css -->
+        <link rel="stylesheet" href="./Drmartens.css">
+    </head>
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script type="text/javascript"></script>
+    <script>
+        //Mobile nav 
+        $(function(){
+            $(".m__view_headline").click(function(e){
+                e.preventDefault();
+                $(".side__nav").show(500);
+            });
+            $(".close__btn"). click(function(){
+                $(".side__nav").hide(500);
+            });
+        });
+        
+        //Mobile nav Accordion
+        $(function(){
+            $(".side__nav--list").click(function(){
+                $(this).next("div").slideToggle();
+                $(this).next().siblings(".side__nav--content").slideUp();
+            })
+        })
+
+        //Mobile LoginModal
+        $(function(){
+            $(".login_btn").click(function(){
+                $(".LoginModal__wrap").show();
+            });
+        });
+        $(function(){
+            $(".LoginModal__close__btn").click(function(){
+                $(".LoginModal__wrap").css("display", "none");
+            });
+        });
+        
+        //desktop LoginModal
+        $(function(){
+            $(".nav__list2").click(function(){
+                $(".LoginModal__wrap").show();
+            });
+        });
+        $(function(){
+            $(".LoginModal__close__btn").click(function(){
+                $(".LoginModal__wrap").css("display", "none");
+            });
+        });
+        
+        //detail product 탭 메뉴
+        
+        $(".detail__main--item--wrap").eq(0).show();
+        $(function(){
+            $(".detail__sub--btn").click(function(e){
+                e.preventDefault();
+                var targer = $(this);
+                var index = targer.index();
+                $(".detail__sub--btn").removeClass("active");
+                targer.addClass("active");
+                $(".detail__main--item--wrap").css("display","none");
+                $(".detail__main--item--wrap").eq(index).css("display","block");
+            })
+        });
+
+        //detail__into 탭 메뉴
+        
+        $(".detail__into").eq(0).show();
+        $(function(){
+            $(".detail__info--text").click(function(e){
+                e.preventDefault();
+                var targer = $(this);
+                var index = targer.index();
+                $(".detail__info--text").removeClass("active");
+                targer.addClass("active");
+                $(".detail__into").css("display","none");
+                $(".detail__into").eq(index).css("display","block");
+            })
+        });
+
+        //spiner
+        $(function(){
+            $(".spiner__btn--plus").click(function() {
+                var count = $(".spiner__count").val();
+                count = parseInt(count) + 1;
+                $(".spiner__count").val(count);
+            });
+            $(".spiner__btn--minus").click(function() {
+                var count = $(".spiner__count").val();
+                if(count == 1) {
+					return;
+				}
+                count = parseInt(count) - 1;
+                $(".spiner__count").val(count);
+            });
+        });
+        
+        //Product Accordion
+        $(function(){
+            $(".info__title--list--mobile").click(function(){
+                $(this).next("div").slideToggle();
+                $(this).next().siblings(".info__title--list--content").slideUp();
+            })
+        })
+
+        //Footer Accordion
+        $(function(){
+            $(".footer__nav--list").click(function(){
+                $(this).next("div").slideToggle();
+                $(this).next().siblings(".footer__list--contents").slideUp();
+            })
+        })
+    </script>
+    <body>
+        <!-- LoginModal -->
+        <div class="LoginModal__wrap">
+            <div class="LoginModal">
+                <div class="LoginModal__close__btn">
+                    <i class="material-icons">clear</i>
+                </div>
+                <div class="Login_top">
+                    <h3 class="Login_text">로그인</h3>
+                    <input type="text" placeholder="아이디" class="Login_id">
+                    <input type="text" placeholder="비밀번호" class="Login_pw">
+                    <label>
+                        <input type="checkbox" class="Login_ck">
+                        <span class="Login_remember">아이디 자동저장</span>
+                        <span class="Login_find">아이디/비밀번호찾기</span>
+                        <input type="text" value="로그인" class="Login_form_btn">
+                    </label>
+                </div>
+                <div class="Login_bottom">
+                    <h3 class="Login_text">비회원 주문조회</h3>
+                    <input type="text" placeholder="주문번호" class="Login_id">
+                    <input type="text" placeholder="이메일" class="Login_pw">
+                    <label>
+                        <input type="text" value="비회원 주문조회" class="Login_form_btn">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Header -->
+        <header class="mobile__header">
+            <div class="m__header--top">
+                <p class="m__top--text">[NEW] 닥터마틴 X 언더커버 컬렉션</p>
+            </div>
+            <div class="m__header--bottom">
+                <a href="" class="m__view_headline">
+                    <i class="material-icons">view_headline</i>   
+                </a>
+                <a href="./index.html" class="m__header--logo">
+                    <img src="./DRimg/logo1.png" alt="" class="m__logo">
+                </a>
+                <span class="login_btn">로그인</span>
+                <a href="" class="m__shopping_cart">
+                    <i class="material-icons-outlined">shopping_cart</i>
+                </a>
+            </div> 
+        </header>  
+        <div class="side__nav">
+            <div class="side__nav--list2">
+                <div class="side__nav--list--person">
+                    <i class="material-icons">person_outline</i>
+                </div>
+                <p class="side__nav--icon--font">로그인</p>
+                <div class="close__btn">
+                    <i class="material-icons">clear</i>
+                </div>
+            </div>
+            <div class="side__nav--list">
+                <p class="side__nav--font">MEN</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">navigate_next</i>
+                </div>
+            </div>
+            <div class="side__nav--content" style="display: none">
+                <a href="./Drmartens_list.html"><p>전체상품</p></a>
+                <a href="./Drmartens_list.html"><p>신발</p></a>
+                <a href="./Drmartens_list.html"><p>의류</p></a>
+                <a href="./Drmartens_list.html"><p>악세사리</p></a>
+            </div>
+            <div class="side__nav--list">
+                <p class="side__nav--font">WOMEN</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">navigate_next</i>
+                </div>
+            </div>
+            <div class="side__nav--content" style="display: none">
+                <a href="./Drmartens_list.html"><p>전체상품</p></a>
+                <a href="./Drmartens_list.html"><p>신발</p></a>
+                <a href="./Drmartens_list.html"><p>의류</p></a>
+                <a href="./Drmartens_list.html"><p>악세서리</p></a>
+            </div>
+            <div class="side__nav--list">
+                <p class="side__nav--font">BRAND</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">navigate_next</i>
+                </div>
+            </div>
+            <div class="side__nav--content" style="display: none">
+                <a href="./Drmartens_list.html"><p>전체상품</p></a>
+                <a href="./Drmartens_list.html"><p>닥터마틴 X 언더커버</p></a>
+                <a href="./Drmartens_list.html"><p>닥터마틴 X 베이프</p></a>
+                <a href="./Drmartens_list.html"><p>닥터마틴 X 마크 제이콥스</p></a>
+            </div>
+            <div class="side__nav--list">
+                <p class="side__nav--font">EVENT</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">navigate_next</i>
+                </div>
+            </div>
+            <div class="side__nav--content" style="display: none">
+                <a href="./Drmartens_list.html"><p>EVENT</p></a>
+            </div>
+            <div class="side__nav--list">
+                <p class="side__nav--font">NEWS</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">navigate_next</i>
+                </div>
+            </div>
+            <div class="side__nav--content" style="display: none">
+                <a href="./Drmartens_list.html"><p>NEWS</p></a>
+            </div>
+            <div class="side__nav--list2">
+                <p class="side__nav--font">검색</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">search</i>
+                </div>
+            </div>
+            <div class="side__nav--list2">
+                <p class="side__nav--font">FAQ</p>
+            </div>
+            <div class="side__nav--list2">
+                <p class="side__nav--font">고객지원센터</p>
+            </div>
+            <div class="side__nav--list2">
+                <p class="side__nav--font">매장찾기</p>
+            </div>
+        </div>
+
+        <!-- Desktop Header -->
+        <header class="header">
+            <div class="header__top">
+                <a href="#" class="header__top--text">[NEW] 닥터마틴 X 언더커버 컬렉션</a>
+            </div>
+            <div class="header__bottom">
+                <a href="./index.html" class="header__bottom--logo">
+                    <img src="./DRimg/logo1.png" alt="" class="bottom__logo--img">
+                </a>
+                <ul class="nav__main">
+                    <li class="nav__list"><a href="./Drmartens_list.html" class="nav__list--btn">MEN</a></li>
+                    <li class="nav__list"><a href="./Drmartens_list.html" class="nav__list--btn">WOMEN</a></li>
+                    <li class="nav__list"><a href="./Drmartens_list.html" class="nav__list--btn">BRAND</a></li>
+                    <li class="nav__list"><a href="./Drmartens_list.html" class="nav__list--btn">EVENT</a></li>
+                    <li class="nav__list"><a href="./Drmartens_list.html" class="nav__list--btn">NEWS</a></li>
+                </ul>
+                <ul class="nav__sub">
+                    <!-- <li class="nav__list2"><a href="#" class="nav__list--slash">로그인</a></li>
+                    <li class="nav__list2"><a href="#" class="nav__list--slash">회원가입</a></li> -->
+                    <li class="nav__list2"><a href="#">로그인</a></li>
+                    <a href="#" class="d__search">
+                        <i class="material-icons-outlined">shopping_cart</i>
+                    </a>
+                </ul>
+            </div>
+        </header>
+        
+        <!-- TopSection -->
+        <div class="section--wrap">
+            <div class="section">
+                <ul class="section--font">
+                    <li class="section--font__list"><a href="#" class="font--list__font">HOME</a></li>
+                    <li class="section--font__list"><a href="#" class="font--list__font">WOMEN</a></li>
+                    <li class="section--font__list"><a href="#" class="font--list__font">슈즈</a></li>
+                    <li class="section--font__list2"><a href="#" class="font--list__font">1460 섹스피스톨즈</a></li>
+                </ul> 
+            </div>  
+        </div> 
+        
+        <!-- Detail Main Product-->
+        <div class="detail__product">
+            <div class="detail__product--img">
+                <ul class="detail__sub--item">
+                    <a href="#" class="detail__sub--btn active">
+                        <li class="detail__item--list" style="background-image: url(DRimg/detail_sub5.png)"></li>
+                    </a>
+                    <a href="#" class="detail__sub--btn">
+                        <li class="detail__item--list" style="background-image: url(DRimg/detail_sub1.png)"></li>
+                    </a>
+                    <a href="#" class="detail__sub--btn">
+                        <li class="detail__item--list" style="background-image: url(DRimg/detail_sub2.png)"></li>
+                    </a>
+                    <a href="#" class="detail__sub--btn">
+                        <li class="detail__item--list" style="background-image: url(DRimg/detail_sub3.png)"></li>
+                    </a>
+                    <a href="#" class="detail__sub--btn">
+                        <li class="detail__item--list" style="background-image: url(DRimg/detail_sub4.png)"></li>
+                    </a>
+                </ul>
+                <div class="detail__main--item--wrap item">
+                    <img src="./DRimg/detail_main.png" alt="">
+                </div>
+                <div class="detail__main--item--wrap">
+                    <img src="./DRimg/detail_main2.png" alt="">
+                </div>
+                <div class="detail__main--item--wrap">
+                    <img src="./DRimg/detail_main3.png" alt="">
+                </div>
+                <div class="detail__main--item--wrap">
+                    <img src="./DRimg/detail_main4.png" alt="">
+                </div>
+                <div class="detail__main--item--wrap">
+                    <img src="./DRimg/detail_main5.png" alt="">
+                </div>
+            </div>
+            <div class="detail__product--info">
+                <div class="detail__product--info--title">
+                    <div class="item__sale--line--wrap">
+                        <p class="detail__item--sale">SALE</p>
+                        <p class="item__sale--line"></p>
+                    </div>
+                    <h3 class="product__info--title">1460 섹스피스톨즈</h3>
+                    <img src="./DRimg/star4.5.png" alt="">
+                    <p class="detail__item--price">₩190,000<span class="detail__item--price--sale">₩218,000</span></p>
+                </div> 
+                <div class="product__info--content--top">
+                    <ul class="info__title">
+                        <li class="info__title--list">상품코드</li>
+                        <li class="info__title--list">혜택</li>
+                        <li class="info__title--list">배송비</li>
+                        </ul>
+                    <ul class="info__content">
+                        <li class="info__content--list">DRM19103B9</li>
+                        <li class="info__content--list">2,580 마일리지 적립</li>
+                        <li class="info__content--list">2,500원 (제주도 및 산간지역은 별도의 배송비)</li>
+                    </ul>
+                </div>
+                <div class="info__title--mobile">
+                    <div class="info__title--list--mobile">
+                        <p class="info__title--list--text">
+                            상품코드
+                        </p>
+                        <div class="info__title--list--icon">
+                            <i class="material-icons">add</i>
+                        </div>
+                    </div>
+                    <div class="info__title--list--content" style="display: none">
+                        <p>상품코드 : DRM19103B9</p>
+                    </div>
+                    <div class="info__title--list--mobile">
+                        <p class="info__title--list--text">
+                            혜택
+                        </p>
+                        <div class="info__title--list--icon">
+                            <i class="material-icons">add</i>
+                        </div>
+                    </div>
+                    <div class="info__title--list--content" style="display: none">
+                        <p>1544-6486 (내선 2번)</p>
+                        <p>전국 매장 유/무상 A/S</p>
+                    </div>
+                    <div class="info__title--list--mobile">
+                        <p class="info__title--list--text">
+                            배송비
+                        </p>
+                        <div class="info__title--list--icon">
+                            <i class="material-icons">add</i>
+                        </div>
+                    </div> 
+                    <div class="info__title--list--content" style="display: none">
+                        <p>2,500원 (제주도 및 산간지역은 별도의 배송비)</p>
+                        <p>200,000원 이상 구매시 무료 배송</p>
+                    </div>
+                </div>
+                <div class="product__info--content--bottom">
+                    <ul class="info__title2">
+                        <li class="info__title--list2">컬러</li>
+                        <li class="info__title--list2">사이즈</li>
+                        <li class="info__title--list2">수량</li>
+                    </ul>
+                    <div class="info__content--wrap">
+                        <ul class="info__content2">
+                            <li class="info__content--list2">
+                                <a href="#" class="color__box--btn">
+                                    <div class="color__box--1"></div>
+                                </a>
+                                <a href="#" class="color__box--btn">
+                                    <div class="color__box--2"></div>
+                                </a>
+                                <a href="#" class="color__box--btn">
+                                    <div class="color__box--3"></div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="color__box">
+                            <select class="color__box--drop">
+                                <option>컬러 선택</option>
+                                <option>블랙</option>
+                                <option>레드</option>
+                                <option>카키</option>
+                            </select>
+                            <span class="color__box--icon">
+                                <i class="material-icons">expand_more</i>
+                            </span> 
+                        </div>
+                        <div class="size__box--wrap">
+                            <div class="size__box1">
+                                <select class="size__box--drop1">
+                                    <option>사이즈 선택</option>
+                                    <option>uk4 (품절)</option>
+                                    <option>uk5</option>
+                                    <option>uk6</option>
+                                    <option>uk7</option>
+                                    <option>uk8</option>
+                                </select>
+                                <span class="size__box--icon1">
+                                    <i class="material-icons">expand_more</i>
+                                </span> 
+                            </div>
+                            <span class="size__sub--text">사이즈 조건표</span>
+                        </div>
+                        <div class="detail__spiner--wrap">
+                            <p class="detail__spiner--text">수량</p>
+                            <div class="detail__spiner">
+                                <button class="spiner__btn--minus">
+                                    <i class="material-icons">remove</i>
+                                </button>
+                                <input type="text" value="1" class="spiner__count">
+                                <button class="spiner__btn--plus">
+                                    <i class="material-icons">add</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail__info--last--btn">
+                    <div class="favorite--btn">
+                        <a href="#" class="detai__info--favorite--btn"><i class="material-icons">favorite</i>
+                        </a>
+                    </div>
+                    <div class="detail__btns">
+                        <div class="shopbag__wrap">
+                            <a href="#" class="detail__btn shopbag">장바구니</a>
+                        </div>
+                        <div class="buynow__wrap">
+                            <a href="#" class="detail__btn buynow">즉시구매</a>
+                        </div>
+                    </div>
+                </div>
+                <p class="info__content--bottom--text">200,000원 이상 구매시 무료  배송</p>
+            </div>
+        </div>
+        
+        <!--Detail Sub Product-->
+        <div class="detail__product--sub">
+            <ul class="product__sub--btn">
+                <li class="product__sub--text active">
+                    <button type="button"><span>함께 본 상품</span></button>
+                </li>
+                <li class="product__sub--text">
+                    <button type="button"><span></span></button>
+                </li>
+                <li class="product__sub--text">
+                    <button type="button"><span></span></button>
+                </li>
+                <li class="product__sub--text">
+                    <button type="button"><span></span></button>
+                </li>
+            </ul>
+            <div class="product__sub">
+                <ul class="detail__items">
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/detail_sub_item1.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">BEST</p>
+                                        <p class="item__top--bar--b"></p>
+                                    </div>
+                                    <p class="item__title--text">패트리샤 lll</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩148,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="" class="best__item--link">
+                                <img src="./DRimg/detail_sub_item2.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">BEST</p>
+                                        <p class="item__top--bar--b"></p>
+                                    </div>
+                                    <p class="item__title--text">닥터마틴 1461</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩208,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list--last">
+                        <div class="best__item--group">
+                            <a href="" class="best__item--link">
+                                <img src="./DRimg/detail_sub_item3.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">SALE</p>
+                                        <p class="item__top--bar--s"></p>
+                                    </div>
+                                    <p class="item__title--text">조지</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩129,000 </span>
+                                        <span class="best__sale--price">₩190,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list--last">
+                        <div class="best__item--group">
+                            <a href="" class="best__item--link">
+                                <img src="./DRimg/detail_sub_item4.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">BEST</p>
+                                        <p class="item__top--bar--b"></p>
+                                    </div>
+                                    <p class="item__title--text">미카</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩190,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                </ul>
+                <div class="best__dots">
+                    <span class="best__dot active"></span>
+                    <span class="best__dot"></span>
+                </div> 
+            </div>
+        </div>
+        <!-- Product Info -->
+        <div class="">
+            <div class="product__detail--info">
+                <ul class="product__detail--btn">
+                    <li class="detail__info--text active">
+                        <a href=""><span class="detail__info--text--link">상품상세정보</span></a>
+                    </li>
+                    <li class="detail__info--text">
+                        <a href=""><span class="detail__info--text--link">상품리뷰(8)</span></a>
+                    </li>
+                    <li class="detail__info--text">
+                        <a href=""><span class="detail__info--text--link">상품문의</span></a>
+                    </li>
+                    <li class="detail__info--text">
+                        <a href=""><span class="detail__info--text--link">교환/반품</span></a>
+                    </li>
+                    <li class="detail__info--text">
+                        <a href=""><span class="detail__info--text--link"></span></a>
+                    </li>
+                    <li class="detail__info--text active">
+                        <a href=""><span class="detail__info--text--link"></span></a>
+                    </li>
+                </ul>
+            </div> 
+            <div class="detail__into detail__info--img--wrap">
+                <img src="./DRimg/detail_info_img.png" alt="">
+            </div> 
+            <div class="detail__into review__wrap">    
+                <!-- Mobile Review --> 
+                <div class="review__top--mobile--wrap">
+                    <div class="review__top--mobile">
+                        <ul class="review__content--texts">
+                            <li class="review__content--text">
+                                <a href="">추천순</a>
+                            </li>
+                            <li class="review__content--text2">
+                                <a href="">포토리뷰 모아보기</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="review__content--bottom--text">
+                        <a href="">리뷰 작성</a>
+                    </div>
+                </div>
+                <!-- Desktop Review --> 
+                <div class="review__top">
+                    <ul class="review__info">
+                        <li class="review__text">
+                            <span class="text--main">구매고객 총평점</span><span class="text--sub">(총8건 상품명 기준)</span>
+                        </li>
+                        <li class="review__star">
+                            <img src="./DRimg/star_4.5.png" alt="" class="review__star--img"><span class="review__star--text">4.5</span>
+                        </li>
+                        <li class="review__btn">
+                            <a href="#" class="review__btns">리뷰 작성하기</a>
+                        </li>
+                    </ul>
+                    <ul class="review__info">
+                        <ul class="review__size--wrap">
+                            <span class="review__title">사이즈</span>
+                            <li class="review__sub">작음</li>
+                            <li class="review__sub active">맞음</li>
+                            <li class="review__sub">큼</li>
+                        </ul> 
+                        <ul class="review__size--wrap">
+                            <span class="review__title">컬&nbsp;&nbsp;&nbsp;&nbsp;러</span>
+                            <li class="review__sub">어두움</li>
+                            <li class="review__sub active">같음</li>
+                            <li class="review__sub">밝음</li>
+                        </ul>   
+                        <ul class="review__size--wrap">
+                            <span class="review__title">만족도</span>
+                            <li class="review__sub">낮음</li>
+                            <li class="review__sub">보통</li>
+                            <li class="review__sub active">높음</li>
+                        </ul>     
+                    </ul>
+                    <ul class="review__info">
+                        <div class="box__wrap">
+                            <div class="red__box"></div><spsn class="red__box--text">구매비중</spsn>
+                            <div class="line__img">
+                                <div class="red__box1--wrap">
+                                    <ul class="red__box1">
+                                        <li class="men__number">4.5</li>
+                                        <li class="men__box"></li>
+                                        <li class="men__text">남성</li>
+                                    </ul>
+                                </div>
+                                <div class="red__box1--wrap">
+                                    <ul class="red__box1">
+                                        <li class="men__number">4.0</li>
+                                        <li class="men__box2"></li>
+                                        <li class="men__text">여성</li>
+                                    </ul>
+                                </div>
+                                <div class="red__box1--wrap">
+                                    <ul class="red__box1">
+                                        <li class="men__number">4.0</li>
+                                        <li class="men__box3"></li>
+                                        <li class="men__text">10대</li>
+                                    </ul>
+                                </div>
+                                <div class="red__box1--wrap">
+                                    <ul class="red__box1">
+                                        <li class="men__number">4.5</li>
+                                        <li class="men__box4"></li>
+                                        <li class="men__text">20대</li>
+                                    </ul>
+                                </div>
+                                <div class="red__box1--wrap">
+                                    <ul class="red__box1">
+                                        <li class="men__number">0</li>
+                                        <li class="men__box5"></li>
+                                        <li class="men__text">30대</li>
+                                    </ul>
+                                </div>
+                                <div class="red__box1--wrap">
+                                    <ul class="red__box1">
+                                        <li class="men__number">0</li>
+                                        <li class="men__box6"></li>
+                                        <li class="men__text">40대</li>
+                                    </ul>
+                                </div>
+                                <div class="red__box1--wrap">
+                                    <ul class="red__box1">
+                                        <li class="men__number">0</li>
+                                        <li class="men__box7"></li>
+                                        <li class="men__text">50대</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+                <div class="review__bottom">
+                    <div class="review__content1--wrap">
+                        <ul class="review__content1">
+                            <li class="review__content--text">전체(8개)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/</li>
+                            <li class="review__content--text">포토리뷰(0)</li>
+                        </ul>
+                        <div class="review__content2--wrapper">
+                            <ul class="review__content2--wrap">
+                                <li class="review__content2">
+                                    <div class="review__box">
+                                        <select class="size__box--drop">
+                                            <option>신상품 순</option>
+                                            <option>인기순</option>
+                                            <option>높은 가격 순</option>
+                                            <option>낮은 가격 순</option>
+                                        </select>
+                                        <span class="size__box--icon">
+                                            <i class="material-icons">expand_more</i>
+                                        </span> 
+                                    </div>
+                                </li>
+                                <li class="review__content2">
+                                    <div class="review__box">
+                                        <select class="size__box--drop">
+                                            <option>옵션</option>
+                                            <option>높은 가격</option>
+                                            <option>낮은 가격</option>
+                                        </select>
+                                        <span class="size__box--icon">
+                                            <i class="material-icons">expand_more</i>
+                                        </span> 
+                                    </div>
+                                </li>
+                                <li class="review__content2">
+                                    <div class="review__box">
+                                        <select class="size__box--drop">
+                                            <option>평점</option>
+                                            <option>높은 평점</option>
+                                            <option>낮은 평점</option>
+                                        </select>
+                                        <span class="size__box--icon">
+                                            <i class="material-icons">expand_more</i>
+                                        </span> 
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="review__main--wrap">
+                            <div class="review__main">
+                                <ul class="review__main--text">
+                                    <li class="review__main--text--list">
+                                        <p class="review__name text">sunn****</p>
+                                        <p class="review__name content">배송이 빨라서 좋습니다~ 색상도 화면과 같고 사이즈도 잘 맞습니다 생각보다 가볍고 기분좋게 신고 다닐게요! 번창하세요 :)</p>  
+                                        <p class="review__name date">2019-04-05</p> 
+                                        <img src="./DRimg/star_4.5.png" alt="" class="review__text--sub--star">
+                                        <p class="review__text--sub--number">4.5</p>
+                                        <p class="review__text--sub--texts">
+                                            남&nbsp;/&nbsp;10대&nbsp;/&nbsp;black&nbsp;/&nbsp;UK7&nbsp;&nbsp;[맞음/같음/좋음]
+                                        </p>
+                                        <div class="review__text--sub--icons">
+                                            <span class="review__text--sub--icon">
+                                                <img src="./DRimg/bad.png" alt="" class="review__text--sub--good">
+                                                <span class="good__icon--number">0</span>
+                                            </span>
+                                            <span class="review__text--sub--icon">
+                                                <img src="./DRimg/good.png" alt="" class="review__text--sub--bad">
+                                                <span class="good__icon--number">1</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li class="review__main--text--list">
+                                        <p class="review__name text">tjsd****</p>
+                                        <p class="review__name content">생각보다 배송이 빨라서 놀랐습니다. 원래 신던 사이즈 보다는 살쩍 큰 감이 있네요!!!!!! 깔창 넣어서  신으면 편하게 잘 신을거 같네요~그래도 닥마는 역시나 역시네요ㅎㅎ  항상 애정합니다ㅎㅎ</p>  
+                                        <p class="review__name date">2019-03-30</p> 
+                                        <img src="./DRimg/star_4.png" alt="" class="review__text--sub--star">
+                                        <p class="review__text--sub--number">4.0</p>
+                                        <div>
+                                        <p class="review__text--sub--texts">
+                                            여&nbsp;/&nbsp;20대&nbsp;/&nbsp;black&nbsp;/&nbsp;UK4&nbsp;&nbsp;[큼/같음/보통]
+                                        </p>
+                                        <div class="review__text--sub--icons">
+                                            <span class="review__text--sub--icon">
+                                                <img src="./DRimg/bad.png" alt="" class="review__text--sub--good">
+                                                <span class="good__icon--number">0</span>
+                                            </span>
+                                            <span class="review__text--sub--icon">
+                                                <img src="./DRimg/good.png" alt="" class="review__text--sub--bad">
+                                                <span class="good__icon--number">1</span>
+                                            </span>
+                                        </div>
+                                        </div>
+                                    </li>
+                                    <li class="review__main--text--list">
+                                        <p class="review__name text">kill****</p>
+                                        <p class="review__name content">사려다가 품절되서 포기하고 있었는데 재입고 되자마자 바로 샀습니다  가격도 너무 착해서 고민없이 바로 질렀네요!!!!!!!!색상도 사이즈도 제가 생각했던 것 보다 더 마음에 들고 지금 날씨에 너무 잘 신을거 같아요 </p>  
+                                        <p class="review__name date">2019-03-20</p> 
+                                        <img src="./DRimg/star_4.5.png" alt="" class="review__text--sub--star">
+                                        <p class="review__text--sub--number">4.5</p>
+                                        <p class="review__text--sub--texts">
+                                            남&nbsp;/&nbsp;20대&nbsp;/&nbsp;black&nbsp;/&nbsp;UK6&nbsp;&nbsp;[맞음/같음/좋음]
+                                        </p>
+                                        <div class="review__text--sub--icons">
+                                            <span class="review__text--sub--icon">
+                                                <img src="./DRimg/bad.png" alt="" class="review__text--sub--good">
+                                                <span class="good__icon--number">0</span>
+                                            </span>
+                                            <span class="review__text--sub--icon">
+                                                <img src="./DRimg/good.png" alt="" class="review__text--sub--bad">
+                                                <span class="good__icon--number">1</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div> 
+                        </div>
+                        <div class="review__more">
+                            <a href="" class="review__more--text">더보기</a>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <div class="detail__into">
+                <div class="produte__inquire--wrap">
+                    <a href="#" class="produte__inquire--btn">
+                        <span class="material-icons">create</span>글쓰기
+                    </a>
+                    <p class="produte__inquire">등록된 문의사항이 없습니다.</p>
+                </div>
+            </div>
+            <div class="detail__into">
+                <div class="ProductCommonInto__wrap">
+                    <ul class="ProductCommonInto__desc">
+                        <li class="ProductCommonInto__tit">교환안내</li>
+                        <li class="list__content">
+                            제품 수령 후 7일 이내에 마이페이지 – 주문 배송조회 - 주문 상세에서 교환 신청 후 원하시는 사이즈 기입 부탁드립니다. <br>
+                            수령지로 CJ택배(1588-1255) 반품 접수됩니다. 교환 제품은 상품 도착 후 최소 일주일 이상 소요되며 재고가 부족한 경우 발송이 어려울 수 있습니다. <br>
+                            ※ 네이버 페이 구매 고객의 경우, 네이버 페이 마이페이지에서 교환 신청 후 보내주시면 됩니다. <br>
+                            ※ 반품 주소 : 경기도 이천시 마장면 프리미엄 아울렛로 113-49 스마트 물류 닥터마틴 <br>
+                        </li>
+                        <li class="list__content">
+                            사이즈 교환만 가능하며, 다른 제품으로 교환을 원하시는 경우 해당 제품을 반품해주시고, 별도로 신규 주문해주셔야 합니다.
+                        </li>
+                        <li class="list__content">
+                            공식몰 회원일 경우 정상가 구매 제품 사이즈 교환 1회 무료 서비스를 제공합니다. (쿠폰 사용 포함, 세일 카테고리 제외, 네이버페이 구매 고객 제외)
+                        </li>
+                        <li class="list__content">
+                            세일 상품 교환의 경우, 왕복 택배비 6,000원을 아래 계좌로 송금해주시길 바랍니다.(제주 지역 별도 추가 배송비 6,000원) ※ 하나은행 / 119-910011-45504 / 닥터마틴에어웨어코리아 ※ 동봉된 택배비는 처리되지 않으며 분실되는 경우 저희가 책임지지 않습니다.
+                        </li>
+                        <li class="list__content">
+                            제품 및 박스의 손상이 없도록 받아보신 그대로 보내주셔야 합니다. (반품 택배 발송시 사은품은 제외하고 발송 부탁드립니다. 교환 발송시 사은품은 별도 발송되지 않습니다.) 박스 및 택이 분실되거나, 사용 흔적/오염 등 고의로 손상된 제품은 당사에서 확인 후 반송 처리합니다.
+                        </li>
+                        <li class="list__content">
+                            접수 후 2주 이내 물품을 보내주셔야 합니다. 기간이 초과된 제품은 반송 처리될 수 있습니다. (왕복 배송비 고객 부담)
+                        </li>
+                        <li class="list__content">
+                            부득이한 사정으로 CJ택배가 아닌 타 택배를 이용하셔야 하는 경우 선불로 보내주시고 게시판에 남겨주세요.
+                        </li>
+                        <li class="list__content">
+                            물류센터 입고 후, 영업일 기준 7일 이내 기존 수령지로 교환 제품이 출고되며, 재고가 없으면 반품, 환불 처리될 수 있습니다. 교환받을 주소 및 수령자 정보를 변경할 경우에는1:1 게시판에 남겨주세요.
+                        </li>
+                        <li class="list__content">
+                            불량 제품의 경우, 1:1 게시판에 제품 사진, 주문 번호, 연락처를 남겨주시면 빠른 처리 도와드리겠습니다. 당사의 실수로 인한 오배송 및 불량상품의 택배비는 닥터마틴에서 전액 부담합니다. 단, 동일한 상품 (색상, 사이즈 포함)으로의 교환만 당사 부담이며, 원래 주문하셨던 상품이 아닌 경우에는 변심으로 간주되어 별도로 주문 부탁드립니다.
+                        </li>
+                    </ul>
+                    <ul class="ProductCommonInto__desc">
+                        <li class="ProductCommonInto__tit">취소안내</li>
+                        <li class="list__content">
+                            주문의 상태가 배송준비중일 경우 취소가 불가합니다. 교환, 환불을 원하실 경우 교환 및 환불 안내를 참고하시기 바랍니다.
+                        </li>
+                        <li class="ProductCommonInto__tit">환불안내</li>
+                        <li class="list__content">
+                            제품 수령 후 7일 이내에 마이페이지 – 주문 배송조회 – 주문 상세에서 반품 신청 해주셔야 합니다. <br>
+                            수령지로 CJ택배 (1588-1255) 반품 접수됩니다. <br>
+                            ※ 반품 주소 : 경기도 이천시 마장면 프리미엄 아울렛로 113-49 스마트물류 닥터마틴 <br>
+                        </li>
+                        <li class="list__content">
+                            물류센터 입고 확인 후 1-3일 이내에, 왕복 배송비 (6,000원) 차감하여 환불됩니다. (제주 지역 별도 추가 배송비 6,000원) <br>
+                            ※ 동봉된 택배비는 처리되지 않으며 분실되는 경우 책임지지 않습니다. <br>
+                            ※ 네이버 페이 구매 고객의 경우, 네이버 페이 마이페이지에서 반품 신청 후 보내주시면 됩니다. 왕복 배송비 (6,000원)를 추가 결제 시 전액 환불됩니다. <br>
+                        </li>
+                        <li class="list__content">
+                            제품 및 박스의 손상이 없도록 받아보신 그대로 보내주셔야 합니다. (사은품 동봉 필수) 박스 및 택이 분실되거나, 사용 흔적/오염 등 고의로 손상된 제품은 당사에서 확인 후 반송 처리합니다.
+                        </li>
+                        <li class="list__content">
+                            게시판 접수 후 2주 이내 물품을 보내주셔야 합니다. 기간이 초과된 제품은 반송 처리될 수 있습니다. (왕복 배송비 고객 부담)
+                        </li>
+                        <li class="list__content">
+                            부득이한 사정으로 CJ택배가 아닌 타 택배를 이용하셔야 하는 경우 선불로 보내주셔야 합니다.
+                        </li>
+                        <li class="list__content">
+                            불량 제품의 경우, 1:1 게시판에 제품 사진 첨부해주시면 빠른 처리 도와드리겠습니다.
+                        </li>
+                        <li class="list__content">
+                            카드 환불일 경우, 카드사의 승인/취소 처리 과정으로 7~14일 가량소요되며, 결제일은 개인차가 있을 수 있습니다. 대금 정산 이후 결제 취소되는 경우, 익월 청구 금액에서 차감되어 처리되며 명세서를 통해 확인할 수 있습니다.
+                        </li>
+                        <li class="list__content--bold">
+                            닥터마틴 고객센터 : 1544-6486 <br>
+                            (월~금 10AM ~ 5PM / 점심시간 : 12:30~1:30) <br>
+                            주말 및 공휴일 휴무 <br>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>  
+        <!-- Mobile Footer -->
+        <footer class="footer__mobile">
+            <div class="footer__nav">
+                <div class="footer__nav--list">
+                    <p class="footer__list--text">QUICKINKS</p>
+                    <div class="footer__list--icon">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </div>
+                </div>
+                <div class="footer__list--contents" style="display: none">
+                    <p>남성</p>
+                    <p>여성</p>
+                    <p>브랜드</p>
+                    <p>이벤트</p>
+                    <p>뉴스</p>
+                </div>
+                <div class="footer__nav--list" >
+                    <p class="footer__list--text">ABOUT DM’S</p>
+                    <div class="footer__list--icon">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </div>
+                </div>
+                <div class="footer__list--contents" style="display: none">
+                    <p>역사</p>
+                    <p>이야기</p>
+                    <p>공지사항</p>
+                    <p>연락망</p>
+                    <p>현대의 직업 현황</p>
+                </div>
+                <div class="footer__nav--list">
+                    <p class="footer__list--text">CUSTOMER SERVICE</p>
+                    <div class="footer__list--icon">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </div>
+                </div>
+                <div class="footer__list--contents" style="display: none">
+                    <p>주문배송/조회</p>
+                    <p>FAQs</p>
+                    <p>사이즈 가이드</p>
+                    <p>1:1 문의</p>
+                    <p>상품후기</p>
+                </div>
+                <div class="footer__nav--list">
+                    <p class="footer__list--text">BANK ACCOUNT</p>
+                    <div class="footer__list--icon">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </div>
+                </div>
+                <div class="footer__list--contents" style="display: none">
+                    <p>하나은행</p>
+                    <p>119-910011-45504</p>
+                    <p>닥터마틴</p>
+                </div>
+                <div class="footer__nav--list">
+                    <p class="footer__list--text">FOLLOW US</p>
+                    <div class="footer__list--icon">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </div>
+                </div>
+                <div class="footer__list--contents" style="display: none">
+                    <p>유튜브 (YouTube)</p>
+                    <p>페이스북 (Facebook)</p>
+                    <p>인스타그램 (Instagram)</p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__bottom--title">
+                    <a href="" class="footer__bottom--title--text">개인정보 처리방침</a>
+                    <a href="" class="footer__bottom--title--text">이용안내</a>
+                    <a href="" class="footer__bottom--title--text">구매 이용약관</a>
+                    <a href="" class="footer__bottom--title--text">이메일무단 수집거부</a>
+                    <p class="footer__sub--title--text">
+                        닥터마틴에어웨어코리아(주) 서울특별시 마포구 잔다리로3안길 
+                        5 정현빌딩 3층 
+                        사업자번호<br>105-81-94802 | 통신판매업 신고 2013-서
+                        울마포-1212호 / 개인정보관리 책임자 : 송지원 | 대표이사 : 스트
+                        라페져겐프란쯔군트, 박창근 
+                        <br>문의전화 : 1544-6486 | 팩스 : 02-431-7651
+                    </p>
+                </div>  
+            </div>
+        </footer>
+        
+        <!-- Desktop Footer -->
+        <footer class="footer__desktop">
+            <div class="footer__desktop--top">
+                <div class="footer__content--top">
+                    <div class="footer__col">
+                        <strong class="footer__title">
+                            <a href="footer__title--link">QUICKINKS</a>    
+                        </strong> 
+                        <ul class="footer__sub">
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">남성</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">여성</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">브랜드</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">이벤트</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">뉴스</a>
+                            </li>
+                        </ul>   
+                    </div>
+                    <div class="footer__col">
+                        <strong class="footer__title">
+                            <a href="footer__title--link">ABOUT DM’S</a>    
+                        </strong> 
+                        <ul class="footer__sub">
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">역사</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">이야기</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">공지사항</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">연락망</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">현대의 직업 현항</a>
+                            </li>
+                        </ul>   
+                    </div>
+                    <div class="footer__col">
+                        <strong class="footer__title">
+                            <a href="footer__title--link">CUSTOMER SERVICE</a>    
+                        </strong> 
+                        <ul class="footer__sub">
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">주문배송/조회</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">FAQs</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">사이즈 가이드</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">1:1 문의</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">상품후기 </a>
+                            </li>
+                        </ul>   
+                    </div>
+                    <div class="footer__col">
+                        <strong class="footer__title">
+                            <a href="footer__title--link">BANK ACCOUNT</a>    
+                        </strong> 
+                        <ul class="footer__sub">
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">하나은행</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">119-910011-45504</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">닥터마틴</a>
+                            </li>
+                        </ul>   
+                    </div>
+                    <div class="footer__col-l">
+                        <strong class="footer__title">
+                            <a href="footer__title--link">FOLLOW US</a>    
+                        </strong>
+                        <ul class="footer__sub">
+                            <li class="footer--sub__list2__f">
+                                    <a href="#" class="footer--follow__btn"><img src="./DRimg/facebook_icon.png" alt="" class="footer--follow__icon"></a>
+                            </li>
+                            <li class="footer--sub__list2__y">
+                                <a href="#" class="footer--follow__btn"><img src="./DRimg/YouTube_logo.png" alt="" class="footer--follow__icon"></a>
+                            </li>
+                            <li class="footer--sub__list2__i">
+                                <a href="#" class="footer--follow__btn"><img src="./DRimg/instagram_logo.png" alt="" class="footer--follow__icon"></a>
+                            </li>
+                        </ul>   
+                    </div>
+                </div>    
+            </div>
+            <footer class="footer__desktop--bottom">
+                <div class="footer__content--bottom">
+                    <a href="" class="footer__logo--link">
+                        <img src="./DRimg/footer_logo.png" alt="" class="footer__logo--img">
+                    </a> 
+                    <ul class="footer__bottom--nav">
+                        <li class="footer__bottom--list"><a href="">개인정보 처리방침</a></li>
+                        <li class="footer__bottom--list"><a href="">이용안내</a></li>
+                        <li class="footer__bottom--list"><a href="">구매 이용약관</a></li>
+                        <li class="footer__bottom--list"><a href="">이메일무단수집거부</a></li>
+                    </ul>  
+                    <p class="footer__bottom--text">
+                        닥터마틴에어웨어코리아(주) 서울특별시 마포구 잔다리로3안길 5 정현빌딩 3층 / 사업자번호 105-81-94802 | 통신판매업 신고 2013-서울마포-1212호<br>
+                        개인정보관리 책임자 : 송지원 | 대표이사 : 스트라페져겐프란쯔군트, 박창근 / 문의전화 : 1544-6486 | 팩스 : 02-431-7651
+                    </p>
+                </div>
+            </footer>
+        </footer>
+	</body>
+</html>

@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- Vewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Material Icons -->
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css?family=Gothic+A1:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+        <!-- owlcarousel.css -->
+        <link rel="stylesheet" href="./css/owl.carousel.css">
+        <link rel="stylesheet" href="./css/owl.theme.default.css">
+        <!-- script -->
+        <script src="./js/jquery.js"></script>
+        <script src="./js/owl.carousel.min.js"></script>
+        <!-- css -->
+        <link rel="stylesheet" href="./Drmartens.css">
+    </head>
+    <script>
+        //Mobile nav
+        $(function(){
+            $(".m__view_headline").click(function(e){
+                e.preventDefault();
+                $(".side__nav").show(200)
+            });
+            $(".close__btn"). click(function(){
+                $(".side__nav").hide(200)
+            });
+        });
+
+        //Mobile LoginModal
+        $(function(){
+            $(".login_btn").click(function(){
+                $(".LoginModal__wrap").show();
+            });
+        });
+        $(function(){
+            $(".LoginModal__close__btn").click(function(){
+                $(".LoginModal__wrap").css("display", "none");
+            });
+        });
+        
+        //desktop LoginModal
+        $(function(){
+            $(".nav__list2").click(function(){
+                $(".LoginModal__wrap").show();
+            });
+        });
+        $(function(){
+            $(".LoginModal__close__btn").click(function(){
+                $(".LoginModal__wrap").css("display", "none");
+            });
+        });
+        
+        //Mobile nav Accordion
+        $(function(){
+            $(".side__nav--list").click(function(){
+                $(this).next("div").slideToggle();
+                $(this).next().siblings(".side__nav--content").slideUp();
+            })
+        })
+        
+        //Banner Slide
+        $(function(){
+            $('.banner .owl-carousel').owlCarousel({
+                loop:true,
+                autoplay:true,
+                autoplayTimeout:5000,
+                margin:0,
+                nav:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:1
+                    },
+                    1000:{
+                        items:1
+                    }
+                }
+
+            })
+        });
+        
+        //Celeb Slide
+        $(function(){
+            $('.celeb .owl-carousel').owlCarousel({
+                loop:true,
+                autoplay:true,
+                autoplayTimeout:5000,
+                nav:true,
+                responsive:{
+                    0:{
+                        items:2.5,
+                        margin:20,
+                    },
+                    600:{
+                        items:2.5,
+                        margin:20,
+                    },
+                    1000:{
+                        items:4.5,
+                        margin:120,
+                    }
+                    
+                }
+
+            })
+        });
+        
+        //베스트셀러 탭 메뉴
+        
+        $(".best__items").eq(0).show();
+        $(function(){
+            $(".best__btn--item").click(function(e){
+                e.preventDefault();
+                var targer = $(this);
+                var index = targer.index();
+                $(".best__btn--item").removeClass("active");
+                targer.addClass("active");
+                $(".best__items").css("display","none");
+                $(".best__items").eq(index).css("display","block");
+            })
+        });
+        
+        //Footer Accordion
+        $(function(){
+            $(".footer__nav--list").click(function(){
+                $(this).next("div").slideToggle();
+                $(this).next().siblings(".footer__list--contents").slideUp();
+            })
+        })
+        
+        //상위 이동 
+        $(function(){
+            $(".topBtn").click(function(){
+                $("html,body").animate({
+                    scrollTop : 0
+                }, 500)
+            })
+            
+            $(window).scroll(function(e){
+                if($(this).scrollTop() == 0) {
+                    $(".topBtn").fadeOut();
+                }
+                else {
+                    $(".topBtn").fadeIn();
+                }  
+            })
+        })
+    </script>
+    <body>
+        <!-- LoginModal -->
+        <div class="LoginModal__wrap">
+            <div class="LoginModal">
+                <div class="LoginModal__close__btn">
+                    <i class="material-icons">clear</i>
+                </div>
+                <div class="Login_top">
+                    <h3 class="Login_text">로그인</h3>
+                    <input type="text" placeholder="아이디" class="Login_id">
+                    <input type="text" placeholder="비밀번호" class="Login_pw">
+                    <label>
+                        <input type="checkbox" class="Login_ck">
+                        <span class="Login_remember">아이디 자동저장</span>
+                        <span class="Login_find">아이디/비밀번호찾기</span>
+                        <input type="text" value="로그인" class="Login_form_btn">
+                    </label>
+                </div>
+                <div class="Login_bottom">
+                    <h3 class="Login_text">비회원 주문조회</h3>
+                    <input type="text" placeholder="주문번호" class="Login_id">
+                    <input type="text" placeholder="이메일" class="Login_pw">
+                    <label>
+                        <input type="text" value="비회원 주문조회" class="Login_form_btn">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Header -->
+        <div class="scrolltop">
+            <button class="topBtn">
+                <span class="material-icons">arrow_upward</span>
+            </button>
+        </div>
+        <header class="mobile__header">
+            <div class="m__header--top">
+                <p class="m__top--text">[NEW] 닥터마틴 X 언더커버 컬렉션</p>
+            </div>
+            <div class="m__header--bottom">
+                <a href="" class="m__view_headline">
+                    <i class="material-icons">view_headline</i>   
+                </a>
+                <a href="./index.html" class="m__header--logo">
+                    <img src="./DRimg/logo1.png" alt="" class="m__logo">
+                </a>
+                <span class="login_btn">로그인</span>
+                <a href="#" class="m__shopping_cart">
+                    <i class="material-icons-outlined">shopping_cart</i>
+                </a>
+            </div> 
+        </header>
+        <div class="side__nav">
+            <div class="side__nav--list2">
+                <div class="side__nav--list--person">
+                    <i class="material-icons">person_outline</i>
+                </div>
+                <p class="side__nav--icon--font">매장찾기</p>
+                <div class="close__btn">
+                    <i class="material-icons">clear</i>
+                </div>
+            </div>
+            <div class="side__nav--list">
+                <p class="side__nav--font">MEN</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">navigate_next</i>
+                </div>
+            </div>
+            <div class="side__nav--content" style="display: none">
+                <a href="./Drmartens_list.html"><p>전체상품</p></a>
+                <a href="./Drmartens_list.html"><p>신발</p></a>
+                <a href="./Drmartens_list.html"><p>의류</p></a>
+                <a href="./Drmartens_list.html"><p>악세사리</p></a>
+            </div>
+            <div class="side__nav--list">
+                <p class="side__nav--font">WOMEN</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">navigate_next</i>
+                </div>
+            </div>
+            <div class="side__nav--content" style="display: none">
+                <a href="./Drmartens_list.html"><p>전체상품</p></a>
+                <a href="./Drmartens_list.html"><p>신발</p></a>
+                <a href="./Drmartens_list.html"><p>의류</p></a>
+                <a href="./Drmartens_list.html"><p>악세서리</p></a>
+            </div>
+            <div class="side__nav--list">
+                <p class="side__nav--font">BRAND</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">navigate_next</i>
+            </div>
+            </div>
+            <div class="side__nav--content" style="display: none">
+                <a href="./Drmartens_list.html"><p>전체상품</p></a>
+                <a href="./Drmartens_list.html"><p>닥터마틴 X 언더커버</p></a>
+                <a href="./Drmartens_list.html"><p>닥터마틴 X 베이프</p></a>
+                <a href="./Drmartens_list.html"><p>닥터마틴 X 마크 제이콥스</p></a>
+            </div>
+            <div class="side__nav--list">
+                <p class="side__nav--font">EVENT</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">navigate_next</i>
+                </div>
+            </div>
+            <div class="side__nav--content" style="display: none">
+                <a href="./Drmartens_list.html"><p>EVENT</p></a>
+            </div>
+            <div class="side__nav--list">
+                <p class="side__nav--font">NEWS</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">navigate_next</i>
+                </div>
+            </div>
+            <div class="side__nav--content" style="display: none">
+                <a href="./Drmartens_list.html"><p>NEWS</p></a>
+            </div>
+            <div class="side__nav--list2">
+                <p class="side__nav--font">검색</p>
+                <div class="side__nav--list--icon">
+                    <i class="material-icons">search</i>
+                </div>
+            </div>
+            <div class="side__nav--list2">
+                <p class="side__nav--font">FAQ</p>
+            </div>
+            <div class="side__nav--list2">
+                <p class="side__nav--font">고객지원센터</p>
+            </div>
+            <div class="side__nav--list2">
+                <p class="side__nav--font">매장찾기</p>
+            </div>
+        </div>
+        
+        <!-- Desktop Header -->
+        <header class="header">
+            <div class="header__top">
+                <a href="#" class="header__top--text">[NEW] 닥터마틴 X 언더커버 컬렉션</a>
+            </div>
+            <div class="header__bottom">
+                <a href="./index.html" class="header__bottom--logo">
+                    <img src="./DRimg/logo1.png" alt="" class="bottom__logo--img">
+                </a>
+                <ul class="nav__main">
+                    <li class="nav__list"><a href="./Drmartens_list.html" class="nav__list--btn">MEN</a></li>
+                    <li class="nav__list"><a href="./Drmartens_list.html" class="nav__list--btn">WOMEN</a></li>
+                    <li class="nav__list"><a href="./Drmartens_list.html" class="nav__list--btn">BRAND</a></li>
+                    <li class="nav__list"><a href="./Drmartens_list.html" class="nav__list--btn">EVENT</a></li>
+                    <li class="nav__list"><a href="./Drmartens_list.html" class="nav__list--btn">NEWS</a></li>
+                </ul>
+                <ul class="nav__sub">
+                    <!-- <li class="nav__list2"><a href="#" class="nav__list--slash">한국어</a></li>
+                    <li class="nav__list2"><a href="#" class="nav__list--slash">매장찾기</a></li> -->
+                    <li class="nav__list2"><a href="#">로그인</a></li>
+                    <a href="#" class="d__search">
+                        <i class="material-icons-outlined">shopping_cart</i>
+                    </a>
+                </ul>
+            </div>
+        </header>
+        
+        <!-- Banner -->  
+        <div class="banner">
+            <div class="owl-carousel">
+                <div class="item" style="background-image: url(DRimg/banner1.png);">
+                    <div class="banner__link"></div>
+                </div>
+                <div class="item" style="background-image: url(DRimg/banner2.png);">
+                    <div class="banner__link"></div>
+                </div>
+                <div class="item" style="background-image: url(DRimg/banner3.png);">
+                    <div class="banner__link"></div>
+                </div>
+            </div>
+            <div class="banner__texts">
+                <div class="banner__text">
+                    <img src="./DRimg/banner_text_m.png" alt="" class="banner__text--m">
+                    <img src="./DRimg/banner_text_d.png" alt="" class="banner__text--d">
+                </div>
+                <div class="banner__btn">
+                    <a href="" class="banner__btn--text">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Celeb -->
+        <section class="celeb">
+            <div class="celeb__top">
+                <a href="./Drmartens_list.html">
+                    <div class="celeb__banner"></div>
+                </a>
+            </div>
+            <div class="celeb__bottom--wrap">
+                <div class="celeb__bottom">
+                    <div class="celeb__text--wrap">
+                        <div class="celeb__text">
+                            <h2 class="title__text">CELEB’S PICK</h2>
+                            <div class="sub__text--wrap">
+                                <p class="sub__text">편안함을 업그레이드한 베스트 샌들</p>
+                            </div>
+                            <p class="more__c">더보기</p>
+                            <p class="content__text">
+                                나만 갖고 싶은 유니크한 감각의 레트로 스타일 샌들
+                                온라인 단독! 양말과 함께 코디하면 더 예쁜 샌들
+                            </p>
+                            <a href="" class="more__btn"> + MORE</a>
+                        </div>
+                    </div>
+                    <div class="celeb__img--wrap">
+                        <div class="owl-carousel">
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner1.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner2.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner3.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner4.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner5.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner1.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner2.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner3.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner4.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner5.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner1.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="./Drmartens_detail.html" class="best__item--link">
+                                    <img src="./DRimg/sub_banner2.png" alt="" class="celeb__img--item">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Best Seller-->
+        <section class="bestseller__wrap">
+            <div class="bestseller">
+                <h2 class="best__title--text">
+                    BEST SELLER
+                </h2>
+                <a href="" class="more__b">더보기</a>
+                <ul class="best__btn">
+                    <li class="best__btn--item active">
+                        <a href=""><span class="best__btn--item--text">ALL</span></a>
+                    </li>
+                    <li class="best__btn--item">
+                        <a href=""><span class="best__btn--item--text">부츠</span></a>
+                    </li>
+                    <li class="best__btn--item">
+                        <a href=""><span class="best__btn--item--text">샌들</span></a>
+                    </li>
+                    <li class="best__btn--item">
+                        <a href=""><span class="best__btn--item--text">슈즈</span></a>
+                    </li>
+                </ul>
+            </div>
+                <ul class="best__items best--active__items">
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item1.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">SALE</p>
+                                        <p class="item__top--bar--s"></p>
+                                    </div>
+                                    <p class="item__title--text">1460 섹스피스톨즈</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩190,000 </span>
+                                        <span class="best__sale--price">₩218,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item2.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">BEST</p>
+                                        <p class="item__top--bar--b"></p>
+                                    </div>
+                                    <p class="item__title--text">1460 언더커버</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩460,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item3.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">SALE</p>
+                                        <p class="item__top--bar--s"></p>
+                                    </div>
+                                    <p class="item__title--text">애밀리야</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩129,000 </span>
+                                        <span class="best__sale--price">₩215,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item4.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">BEST</p>
+                                        <p class="item__top--bar--b"></p>
+                                    </div>
+                                    <p class="item__title--text">패트리샤 lll</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩148,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item5.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">1461 벡스 로즈</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩200,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item6.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">SALE</p>
+                                        <p class="item__top--bar--s"></p>
+                                    </div>
+                                    <p class="item__title--text">1461 길리</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩200,000 </span>
+                                        <span class="best__sale--price">₩190,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item7.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">크리스티나</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩210,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item8.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">라이커</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩168,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                </ul>
+                <ul class="best__items">
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item15.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">원콕스</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩240,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item2.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">BEST</p>
+                                        <p class="item__top--bar--b"></p>
+                                    </div>
+                                    <p class="item__title--text">1460 언더커버</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩460,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item3.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">SALE</p>
+                                        <p class="item__top--bar--s"></p>
+                                    </div>
+                                    <p class="item__title--text">애밀리야</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩129,000 </span>
+                                        <span class="best__sale--price">₩215,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item16.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">플로라</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩180,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item17.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">2976 첼시 스무스</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩240,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item18.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">BEST</p>
+                                        <p class="item__top--bar--b"></p>
+                                    </div>
+                                    <p class="item__title--text">1490 버지니아</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩240,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item19.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">SALE</p>
+                                        <p class="item__top--bar--s"></p>
+                                    </div>
+                                    <p class="item__title--text">2976 모노</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩240,000 </span>
+                                        <span class="best__sale--price">₩215,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item20.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">SALE</p>
+                                        <p class="item__top--bar--s"></p>
+                                    </div>
+                                    <p class="item__title--text">1460 모노</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩210,000 </span>
+                                        <span class="best__sale--price">₩195,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                </ul>
+                <ul class="best__items">
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item13.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">크리스티나</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩210,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item14.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">라이커</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩168,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item9.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">브레드필드</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩180,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item10.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">마일즈l</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩170,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item11.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">플치</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩79,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item12.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">SALE</p>
+                                        <p class="item__top--bar--s"></p>
+                                    </div>
+                                    <p class="item__title--text">클라리사 II</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩170,000 </span>
+                                        <span class="best__sale--price">₩150,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item13.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">그리폰</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩190,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item14.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">best</p>
+                                        <p class="item__top--bar--b"></p>
+                                    </div>
+                                    <p class="item__title--text">솔로몬</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩190,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                </ul>
+                <ul class="best__items">
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item1.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">SALE</p>
+                                        <p class="item__top--bar--s"></p>
+                                    </div>
+                                    <p class="item__title--text">1460 섹스피스톨즈</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩190,000 </span>
+                                        <span class="best__sale--price">₩218,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item2.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">BEST</p>
+                                        <p class="item__top--bar--b"></p>
+                                    </div>
+                                    <p class="item__title--text">1460 언더커버</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩460,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item3.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">SALE</p>
+                                        <p class="item__top--bar--s"></p>
+                                    </div>
+                                    <p class="item__title--text">애밀리야</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩129,000 </span>
+                                        <span class="best__sale--price">₩215,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item4.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">BEST</p>
+                                        <p class="item__top--bar--b"></p>
+                                    </div>
+                                    <p class="item__title--text">패트리샤 lll</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩148,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item5.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">1461 벡스 로즈</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩200,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item6.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">SALE</p>
+                                        <p class="item__top--bar--s"></p>
+                                    </div>
+                                    <p class="item__title--text">1461 길리</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩200,000 </span>
+                                        <span class="best__sale--price">₩190,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item7.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">크리스티나</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩210,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                    <li class="best__item--list">
+                        <div class="best__item--group">
+                            <a href="./Drmartens_detail.html" class="best__item--link">
+                                <img src="./DRimg/best_item8.png" alt="">
+                                <div class="best__item--texts">
+                                    <div class="item__top--warp">
+                                        <p class="item__top--text">NEW</p>
+                                        <p class="item__top--bar--n"></p>
+                                    </div>
+                                    <p class="item__title--text">라이커</p>
+                                    <div class="prices">
+                                        <span class="best__price">₩168,000 </span>
+                                    </div>
+                                    <i class="material-icons">favorite_border</i>
+                                </div>
+                            </a>
+                        </div>   
+                    </li>
+                </ul>
+        </section>
+        
+        
+        <!-- Collaboration -->
+        <div class="collaboration">
+            <div class="collaboration__banner">
+                <div class="collaboration__texts">
+                    <img src="./DRimg/collaboration_banner_text.png" alt="" class="collaboration__texts--d">
+                    <img src="./DRimg/collaboration_banner_text_mobile.png" alt="" class="collaboration__texts--m">
+                    <p class="collaboration__text">독보적이고 유니크한<br>닥터마틴 X 언더커버 컬렉션</p>
+                    <a href="" class="collaboration__btn">자세히 보기</a>  
+                </div> 
+            </div> 
+        </div>
+
+        <!-- Newsletter -->
+        <div class="newsletter__wrap">
+            <div class="newsletter">
+                <div class="newsletter__text">
+                    <h2 class="newsletter__text--title">DR.MARTEN’S  NEWSLETTER!</h2>
+                    <div class="newsletter__text--sub">뉴스레터를 구독하여 닥터마틴의 소식을 들어보세요!</div>
+                </div>
+                <div class="newsletter__input--wrap">
+                    <input type="text" class="newsletter__input" placeholder="Your E-Mail address">
+                    <a href="" class="newsletter__input--icon">
+                        <i class="material-icons">mail_outline</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Instagram -->
+        <div class="instagram">
+            <div class="instagram__text">
+                <a href="https://www.instagram.com/explore/tags/drmartens/">#Instagrams</a>
+                <a href="https://www.instagram.com/drmartenskr/">#drmartens</a>
+                <p class="more__i">더보기</p>
+            </div>
+            <ul class="instagram__img">
+                <li class="instagram__img--list">
+                    <a href="" class="instagram__list--item">  
+                        <img src="DRimg/instagram1.png" alt="" class="instagram__item--img">  
+                    </a>
+                </li>
+                <li class="instagram__img--list">
+                    <a href="" class="instagram__list--item">  
+                        <img src="DRimg/instagram2.png" alt="" class="instagram__item--img">  
+                    </a>
+                </li>
+                <li class="instagram__img--list">
+                    <a href="" class="instagram__list--item">  
+                        <img src="DRimg/instagram3.png" alt="" class="instagram__item--img">  
+                    </a>
+                </li>
+                <li class="instagram__img--list">
+                    <a href="" class="instagram__list--item">  
+                        <img src="DRimg/instagram4.png" alt="" class="instagram__item--img">  
+                    </a>
+                </li>
+                <li class="instagram__img--list">
+                    <a href="" class="instagram__list--item">  
+                        <img src="DRimg/instagram5.png" alt="" class="instagram__item--img">  
+                    </a>
+                </li>
+                <li class="instagram__img--list">
+                    <a href="" class="instagram__list--item">  
+                        <img src="DRimg/instagram6.png" alt="" class="instagram__item--img">  
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        
+        <!-- Mobile Footer -->
+        <footer class="footer__mobile">
+            <div class="footer__nav">
+                <div class="footer__nav--list">
+                    <p class="footer__list--text">QUICKINKS</p>
+                    <div class="footer__list--icon">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </div>
+                </div>
+                <div class="footer__list--contents" style="display: none">
+                    <p>남성</p>
+                    <p>여성</p>
+                    <p>브랜드</p>
+                    <p>이벤트</p>
+                    <p>뉴스</p>
+                </div>
+                <div class="footer__nav--list" >
+                    <p class="footer__list--text">ABOUT DM’S</p>
+                    <div class="footer__list--icon">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </div>
+                </div>
+                <div class="footer__list--contents" style="display: none">
+                    <p>역사</p>
+                    <p>이야기</p>
+                    <p>공지사항</p>
+                    <p>연락망</p>
+                    <p>현대의 직업 현황</p>
+                </div>
+                <div class="footer__nav--list">
+                    <p class="footer__list--text">CUSTOMER SERVICE</p>
+                    <div class="footer__list--icon">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </div>
+                </div>
+                <div class="footer__list--contents" style="display: none">
+                    <p>주문배송/조회</p>
+                    <p>FAQs</p>
+                    <p>사이즈 가이드</p>
+                    <p>1:1 문의</p>
+                    <p>상품후기</p>
+                </div>
+                <div class="footer__nav--list">
+                    <p class="footer__list--text">BANK ACCOUNT</p>
+                    <div class="footer__list--icon">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </div>
+                </div>
+                <div class="footer__list--contents" style="display: none">
+                    <p>하나은행</p>
+                    <p>119-910011-45504</p>
+                    <p>닥터마틴</p>
+                </div>
+                <div class="footer__nav--list">
+                    <p class="footer__list--text">FOLLOW US</p>
+                    <div class="footer__list--icon">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </div>
+                </div>
+                <div class="footer__list--contents" style="display: none">
+                    <p>유튜브 (YouTube)</p>
+                    <p>페이스북 (Facebook)</p>
+                    <p>인스타그램 (Instagram)</p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__bottom--title">
+                    <a href="" class="footer__bottom--title--text">개인정보 처리방침</a>
+                    <a href="" class="footer__bottom--title--text">이용안내</a>
+                    <a href="" class="footer__bottom--title--text">구매 이용약관</a>
+                    <a href="" class="footer__bottom--title--text">이메일무단 수집거부</a>
+                    <p class="footer__sub--title--text">
+                        닥터마틴에어웨어코리아(주) 서울특별시 마포구 잔다리로3안길 
+                        5 정현빌딩 3층 
+                        사업자번호<br>105-81-94802 | 통신판매업 신고 2013-서
+                        울마포-1212호 / 개인정보관리 책임자 : 송지원 | 대표이사 : 스트
+                        라페져겐프란쯔군트, 박창근 
+                        <br>문의전화 : 1544-6486 | 팩스 : 02-431-7651
+                    </p>
+                </div>  
+            </div>
+        </footer>
+        
+        <!-- Desktop Footer -->
+        <footer class="footer__desktop">
+            <div class="footer__desktop--top">
+                <div class="footer__content--top">
+                    <div class="footer__col">
+                        <strong class="footer__title">
+                            <a href="footer__title--link">QUICKINKS</a>    
+                        </strong> 
+                        <ul class="footer__sub">
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">남성</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">여성</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">브랜드</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">이벤트</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">뉴스</a>
+                            </li>
+                        </ul>   
+                    </div>
+                    <div class="footer__col">
+                        <strong class="footer__title">
+                            <a href="footer__title--link">ABOUT DM’S</a>    
+                        </strong> 
+                        <ul class="footer__sub">
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">역사</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">이야기</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">공지사항</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">연락망</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">현대의 직업 현항</a>
+                            </li>
+                        </ul>   
+                    </div>
+                    <div class="footer__col">
+                        <strong class="footer__title">
+                            <a href="footer__title--link">CUSTOMER SERVICE</a>    
+                        </strong> 
+                        <ul class="footer__sub">
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">주문배송/조회</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">FAQs</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">사이즈 가이드</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">1:1 문의</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">상품후기 </a>
+                            </li>
+                        </ul>   
+                    </div>
+                    <div class="footer__col">
+                        <strong class="footer__title">
+                            <a href="footer__title--link">BANK ACCOUNT</a>    
+                        </strong> 
+                        <ul class="footer__sub">
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">하나은행</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">119-910011-45504</a>
+                            </li>
+                            <li class="footer__sub--list">
+                                <a href="footer__sub--list--link">닥터마틴</a>
+                            </li>
+                        </ul>   
+                    </div>
+                    <div class="footer__col-l">
+                        <strong class="footer__title">
+                            <a href="footer__title--link">FOLLOW US</a>    
+                        </strong>
+                        <ul class="footer__sub">
+                            <li class="footer--sub__list2__f">
+                                    <a href="#" class="footer--follow__btn"><img src="./DRimg/facebook_icon.png" alt="" class="footer--follow__icon"></a>
+                            </li>
+                            <li class="footer--sub__list2__y">
+                                <a href="#" class="footer--follow__btn"><img src="./DRimg/YouTube_logo.png" alt="" class="footer--follow__icon"></a>
+                            </li>
+                            <li class="footer--sub__list2__i">
+                                <a href="#" class="footer--follow__btn"><img src="./DRimg/instagram_logo.png" alt="" class="footer--follow__icon"></a>
+                            </li>
+                        </ul>   
+                    </div>
+                </div>    
+            </div>
+            <footer class="footer__desktop--bottom">
+                <div class="footer__content--bottom">
+                    <a href="" class="footer__logo--link">
+                        <img src="./DRimg/footer_logo.png" alt="" class="footer__logo--img">
+                    </a> 
+                    <ul class="footer__bottom--nav">
+                        <li class="footer__bottom--list"><a href="">개인정보 처리방침</a></li>
+                        <li class="footer__bottom--list"><a href="">이용안내</a></li>
+                        <li class="footer__bottom--list"><a href="">구매 이용약관</a></li>
+                        <li class="footer__bottom--list"><a href="">이메일무단수집거부</a></li>
+                    </ul>  
+                    <p class="footer__bottom--text">
+                        닥터마틴에어웨어코리아(주) 서울특별시 마포구 잔다리로3안길 5 정현빌딩 3층 / 사업자번호 105-81-94802 | 통신판매업 신고 2013-서울마포-1212호<br>
+                        개인정보관리 책임자 : 송지원 | 대표이사 : 스트라페져겐프란쯔군트, 박창근 / 문의전화 : 1544-6486 | 팩스 : 02-431-7651
+                    </p>
+                </div>
+            </footer>
+        </footer>
+	</body>
+</html>
